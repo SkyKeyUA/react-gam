@@ -8,6 +8,9 @@
   padding: 0; /*внутренний отступ*/
   margin: 0; /*внешний отступ*/
   border: 0; /*границы*/
+  list-style: none;
+  outline: none;
+  box-sizing: border-box;
 }
 /*Меняет подсчет ширины блока*/
 *,
