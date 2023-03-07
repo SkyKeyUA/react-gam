@@ -4,7 +4,7 @@
 
 //========================================================================================================================================================
 body {
-  font-size: 16px;
+  font-size: 18px;
   font-family: 'Montserrat';
 }
 //====================================================================================================
@@ -41,7 +41,6 @@ body {
     align-items: center;
     font-weight: 600;
     line-height: 1.2;
-    font-size: 18px;
     svg {
       font-size: 28px;
       margin-right: 10px;
@@ -71,7 +70,6 @@ body {
   }
 
   &__link {
-    font-size: 18px;
     line-height: 1.2;
     &:hover {
       text-decoration: underline;
@@ -156,10 +154,6 @@ body {
     svg {
       margin-right: 15px;
     }
-    &::before {
-      font-size: 24px;
-      margin-right: 24px;
-    }
     &:hover {
       span {
         text-decoration: underline;
@@ -193,7 +187,7 @@ body {
     font-size: 10px;
     transition: transform 0.3s ease 0s;
     margin-left: 17px;
-    &._spoller-active {
+    &.open {
       transform: rotate(-180deg);
     }
   }
@@ -205,25 +199,21 @@ body {
     left: 0;
     margin-top: 5px;
     background-color: #fff;
-    padding: 15px;
+    padding: 12px;
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease 0s;
     li {
       &:not(:last-child) {
-        margin-bottom: 18px;
+        margin-bottom: 12px;
       }
     }
-  }
-
-  &__callback {
-    margin-top: 3px;
-    font-weight: 700;
-    line-height: 1.2;
-    color: $mainOrange;
-    white-space: nowrap;
-    &:hover {
-      text-decoration: underline;
+    &.open {
+      opacity: 1;
+      visibility: visible;
     }
   }
 }
@@ -290,10 +280,11 @@ body {
   &__list {
     display: flex;
     gap: 10px;
-    justify-content: space-evenly;
+    justify-content: space-between;
   }
   &__items {
     position: relative;
+    cursor: pointer;
   }
 
   &__item {
@@ -312,7 +303,7 @@ body {
     &:hover {
       color: $mainOrange;
     }
-    &._sub-menu-active {
+    &.open {
       color: $mainOrange;
       .sub-menu-catalog__column {
         top: 80px;
@@ -331,10 +322,13 @@ body {
     visibility: hidden;
     opacity: 0;
     transition: all 0.3s ease 0s;
-    &._sub-menu-open {
+    &.open {
       visibility: visible;
       opacity: 1;
       top: 70px;
+    }
+    a:visited {
+      color: #fff;
     }
   }
 
