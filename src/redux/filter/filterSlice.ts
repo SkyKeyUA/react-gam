@@ -5,9 +5,11 @@ import { RootState } from '../store';
 
 interface FilterSliceState {
   categoryId: number;
+  toggleCatalog: boolean;
 }
 const initialState: FilterSliceState = {
-  categoryId: -1,
+  categoryId: 0,
+  toggleCatalog: false,
 };
 
 export const filterSlice = createSlice({
@@ -15,7 +17,12 @@ export const filterSlice = createSlice({
   initialState,
   reducers: {
     setCategoryId(state, action: PayloadAction<number>) {
-      state.categoryId = action.payload;
+      if (state.categoryId === action.payload) {
+        state.toggleCatalog = !state.toggleCatalog;
+      } else {
+        state.categoryId = action.payload;
+        state.toggleCatalog = true;
+      }
     },
   },
 });
