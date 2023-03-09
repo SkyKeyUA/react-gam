@@ -6,10 +6,12 @@ import { RootState } from '../store';
 interface FilterSliceState {
   categoryId: number;
   toggleCatalog: boolean;
+  searchValue: string;
 }
 const initialState: FilterSliceState = {
   categoryId: 0,
   toggleCatalog: false,
+  searchValue: '',
 };
 
 export const filterSlice = createSlice({
@@ -24,11 +26,14 @@ export const filterSlice = createSlice({
         state.toggleCatalog = true;
       }
     },
+    setSearchValue(state, action: PayloadAction<string>) {
+      state.searchValue = action.payload;
+    },
   },
 });
 
 export const selectFilter = (state: RootState) => state.filterSlice;
 
-export const { setCategoryId } = filterSlice.actions;
+export const { setCategoryId, setSearchValue } = filterSlice.actions;
 
 export default filterSlice.reducer;

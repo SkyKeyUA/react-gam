@@ -127,6 +127,23 @@ body {
     font-size: 14px;
     color: rgba(0, 0, 0, 0.5);
   }
+  &__icon {
+    cursor: pointer;
+    path {
+      transition: all 0.3s ease 0s;
+    }
+    &-search {
+      &:hover path {
+        fill: #575757;
+      }
+    }
+    &-remove {
+      transition: all 0.3s ease 0s;
+      &:hover path:not(:first-child) {
+        fill: #575757;
+      }
+    }
+  }
 
   &__input {
     width: 100%;
@@ -154,7 +171,13 @@ body {
     svg {
       margin-right: 15px;
     }
+    path {
+      transition: all 0.3s ease 0s;
+    }
     &:hover {
+      path {
+        fill: #e8aa31;
+      }
       span {
         text-decoration: underline;
       }
@@ -165,6 +188,14 @@ body {
 
   &__favorite {
     font-size: 27px;
+    path {
+      transition: all 0.3s ease 0s;
+    }
+    &:hover {
+      path {
+        fill: #e8aa31;
+      }
+    }
   }
 
   &__cart {
