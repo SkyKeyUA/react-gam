@@ -13,16 +13,12 @@ export const Header: React.FC = () => {
   const onClickCatalog = React.useCallback((idx: number) => {
     dispatch(setCategoryId(idx));
   }, []);
-  const { categoryId, toggleCatalog } = useSelector(selectFilter);
+  const { categoryId } = useSelector(selectFilter);
   return (
     <header className="header">
       <HeaderTop />
       <HeaderBody />
-      <Catalog
-        toggleCatalog={toggleCatalog}
-        categoryId={categoryId}
-        onClickCatalog={onClickCatalog}
-      />
+      <Catalog categoryId={categoryId} onClickCatalog={onClickCatalog} />
     </header>
   );
 };
